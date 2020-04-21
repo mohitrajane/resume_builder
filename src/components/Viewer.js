@@ -7,6 +7,7 @@ function Viewer(){
         'height': "29.6cm",
     };
     // const profile = useSelector(state => state.profile);
+    const profileData = useSelector(state => state.profile)
     const firstName = useSelector(state => state.profile.firstName);
     const lastName = useSelector(state => state.profile.lastName);
     const addressLine1 = useSelector(state => state.profile.addressLine1);
@@ -23,6 +24,7 @@ function Viewer(){
                 addredd1 : <p>{addressLine1}</p>
                 addredd2 : <p>{addressLine2}</p>
                 addredd3 : <p>{addressLine3}</p>
+                email : <p>{profileData.email}</p>
 
             </div>
             </div>
