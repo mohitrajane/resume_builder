@@ -5,24 +5,14 @@ import Col from 'react-bootstrap/Col';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateProfile} from '../action';
 
-function Menu(){
+const Menu = () =>{
     const tabs = useSelector(state => state.tabs.items);
     const currentTab = useSelector(state => state.tabs.current);
     const dispatch = useDispatch();
     return(
         <div className="min-vh-100 position-fixed">
                 <TabBar currentTab={currentTab} tabs={tabs}/>
-                <div class="d-flex  col-lg-3 flex-column">
-                    {/* <Row className="ml-2 mt-2">
-                        <Col className="mb-2">
-                            <span>First name</span>
-                            <input type="text"></input>
-                        </Col>
-                        <Col>
-                            <span>Last name</span>
-                            <input type="text"></input>
-                        </Col>
-                    </Row> */}
+                <div className="d-flex  col-lg-3 flex-column">
                         <div className="mb-2 d-flex flex-column">
                             <span>First name</span>
                             <input type="text" onChange={(e) => dispatch(updateProfile(e.target.value,'firstName'))} ></input>
@@ -54,4 +44,4 @@ function Menu(){
     )
 }
 
-export default Menu
+export default Menu;

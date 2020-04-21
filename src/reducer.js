@@ -25,7 +25,24 @@ const initialState ={
     },
     tabs:{
         current:'Profile',
-        items :['Profile','Education','Experience','Skills']
+        items :[
+            {
+                key:'profile',
+                name:'Profile'
+            },
+            {
+                key:'education',
+                name:'Education'
+            },
+            {
+                key:'experience',
+                name:'Experience'
+            },
+            {
+                key:'skills',
+                name:'Skills'
+            }
+        ]
     }
 }
 
@@ -35,12 +52,9 @@ const rootReducer = (state = initialState, action) => {
             let newState = {...state};
             let title = action.title;
             newState.profile[title] = action.payload;
-            // return Object.assign({},state,{
-                // stafirstName:action.payload
-            // })
             return newState;
         default:
-            return state
+            return state;
      }
 }
 

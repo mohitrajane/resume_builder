@@ -5,9 +5,9 @@ const TabBar = (props) => {
     return(
         <Row className="ml-2 mt-2 mb-1">
             {props.tabs.map((tab) =>
-            props.currentTab === tab ?
-            <Tab tab={tab} current={true} />:
-            <Tab tab={tab} current={false} />
+            props.currentTab === tab.name ?
+            <Tab key={tab.key} tab={tab.name} current={true} />:
+            <Tab key={tab.key} tab={tab.name} current={false} />
             )}
         </Row>
     )
