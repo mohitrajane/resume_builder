@@ -1,0 +1,3 @@
+export const  UPDATE_PROFILE = "UPDATE_PROFILE";
+export const ADD_EDUCATION = "ADD_EDUCATION";
+export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
