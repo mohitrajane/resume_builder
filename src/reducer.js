@@ -55,8 +55,6 @@ const rootReducer = (state = initialState, action) => {
             return newState;
         case UPDATE_CURRENT_TAB:
             newState.tabs.current= action.payload;
-            console.log('Updatinf curretnTab');
-            console.log(action);
             return newState;
 
         default:
