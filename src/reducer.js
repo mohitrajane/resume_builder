@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB} from './action-type';
 
 const initialState ={
     profile :{
@@ -24,7 +24,7 @@ const initialState ={
     skills:{
     },
     tabs:{
-        current:'Profile',
+        current:'profile',
         items :[
             {
                 key:'profile',
@@ -47,12 +47,18 @@ const initialState ={
 }
 
 const rootReducer = (state = initialState, action) => {
+    let newState = {...state}
      switch(action.type){
         case UPDATE_PROFILE:
-            let newState = {...state};
             let title = action.title;
             newState.profile[title] = action.payload;
             return newState;
+        case UPDATE_CURRENT_TAB:
+            newState.tabs.current= action.payload;
+            console.log('Updatinf curretnTab');
+            console.log(action);
+            return newState;
+
         default:
             return state;
      }

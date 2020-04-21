@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateCurrentTab} from '../action';
 
 const  Tab = (props) => {
+    const dispatch = useDispatch();
+    const currentTab = useSelector(state => state.tabs.current)
     return(
-        <div className="m-1">
-            {props.current === true? <span className="badge p-2 badge-primary btn-sm">{props.tab}</span> : <span className="badge p-2 badge-light font-weight-normal">{props.tab}</span>}
+        <div className="m-1" onClick={(event) => dispatch(updateCurrentTab(event.target.id))}>
+            {props.id === currentTab? <span id={props.id} className="badge p-2 badge-primary btn-sm">{props.tab}</span> : <span id={props.id} className="badge p-2 badge-light font-weight-normal">{props.tab}</span>}
         </div>
     )
 }
