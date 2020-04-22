@@ -1,7 +1,5 @@
 import React from 'react';
 import { useDispatch} from 'react-redux';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import {updateProfile} from '../../action';
 
 const Profile = () =>{

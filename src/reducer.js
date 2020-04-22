@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION} from './action-type';
 
 const initialState ={
     profile :{
@@ -14,7 +14,24 @@ const initialState ={
     },
     education :{
         heading:'education',
-        items:[] // {institution:'',start:'',end: '',degree: ''}
+        current:'default',
+        items:[
+            // {
+            //     id:'0',
+            //     institution:'FISAT',
+            //     start:'Jan 2016',
+            //     end:'Aug 2020',
+            //     degree:'B.tech'
+            // },
+            // {
+            //     id:'1',
+            //     institution:'AAAA',
+            //     start:'Jan 2016',
+            //     end:'Aug 2020',
+            //     degree:'B.tech'
+            // },
+        ] // {institution:'',start:'',end: '',degree: ''}
+       
     },
     experience:{
         heading:'experience',
@@ -56,7 +73,9 @@ const rootReducer = (state = initialState, action) => {
         case UPDATE_CURRENT_TAB:
             newState.tabs.current= action.payload;
             return newState;
-
+        case UPDATE_CURRENT_EDUCATION:
+            newState.education.current = action.payload;
+            return newState;
         default:
             return state;
      }
