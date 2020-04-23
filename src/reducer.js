@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION} from './action-type';
 
 const initialState ={
     profile :{
@@ -6,8 +6,8 @@ const initialState ={
         firstName: '',
         lastName: '',
         addressLine1 : '',
-        AddressLine2: '',
-        AddressLine3:'',
+        addressLine2: '',
+        addressLine3:'',
         phone:'',
         email:''
 
@@ -64,21 +64,40 @@ const initialState ={
 }
 
 const rootReducer = (state = initialState, action) => {
-    let newState = {...state}
+    let newState;
      switch(action.type){
         case UPDATE_PROFILE:
             let title = action.title;
-            newState.profile[title] = action.payload;
+            newState = {...state,profile:{
+                ...state.profile,
+                [title]:action.payload
+            }}
             return newState;
         case UPDATE_CURRENT_TAB:
-            newState.tabs.current= action.payload;
+            newState ={...state,tabs:{
+                ...state.tabs,
+                current:action.payload
+            }}
             return newState;
         case UPDATE_CURRENT_EDUCATION:
-            newState.education.current = action.payload;
+            newState = {...state,education:{
+                ...state.education,
+                current:action.payload
+            }}
+            return newState;
+        case ADD_EDUCATION:
+            newState ={...state,education:{
+                ...state.education,
+                current:action.payload.id,
+                items:[
+                    ...state.education.items,
+                    action.payload
+                ]
+            }}
             return newState;
         default:
             return state;
      }
 }
 
-export default rootReducer
+export default rootReducer;

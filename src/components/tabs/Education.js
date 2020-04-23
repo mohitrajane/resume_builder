@@ -23,7 +23,12 @@ const Education = () =>{
             }
         });
         if(itemShow !== undefined){
-            return(<EducationItem key={itemShow} item={educationData[itemShow]}/>);
+            return(
+                <>
+                    <EducationItem key={itemShow} item={educationData[itemShow]}/>
+                    <EducationItem/>
+                </>
+            );
         }
         else{
             return <EducationItem />;
@@ -35,23 +40,21 @@ const Education = () =>{
                 educationData.length === 0?
                 <div className="mx-2">
                     <ButtonGroup className="mx-auto">
-                        <Button key={'0'} variant="secondary">Default</Button>
+                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>Default</Button>
                     </ButtonGroup>
                 </div>:
                 <div className="mx-2">
-                    <ButtonGroup className="d-flex flex-cloumn" aria-label="Basic example">
+                    <ButtonGroup className="d-flex " aria-label="Basic example">
                     {educationData.map((item)=>(
                         <>
                                 <Button key={item.id} id={item.id} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>{item.institution}</Button>
                         </>
                     ))}
+                    <Button key={educationData.length+1} id={educationData.length+1}  onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}} variant="secondary">Default</Button>
                     </ButtonGroup>
                 </div>
             }
            {currentItem()}
-           <div className="mx-3 my-4">
-               <Button variant="outline-primary" onClick={addEducation}>Add Item</Button>
-           </div>
 
         </>
     );

@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION} from './action-type';
 
 export const  updateProfile = (payload, title) =>(
     
@@ -20,3 +20,10 @@ export const updateCurrentEducation = (payload) =>(
         payload
     }
 );
+
+export const addEducation = (payload) =>(
+    {
+        type:ADD_EDUCATION,
+        payload
+    }
+)
