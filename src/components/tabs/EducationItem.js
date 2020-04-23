@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {useSelector,useDispatch} from 'react-redux';
-import { addEducation } from '../../action';
+import { addEducation, removeEducation } from '../../action';
 
 const EducationItem = (props) => {
     const length = useSelector(state => state.education.items.length);
-    const noOfItems = (length === 0) ? '0' :(length+1).toString();
+    const noOfItems = (length === 0) ? '0' :length.toString();
+    
     const dispatcher = useDispatch();
     const [institution,setInstitution] = useState('');
     const [start,setStart] = useState('');
     const [end,setEnd] = useState('');
     const [degree,setDegree] = useState('');
+    console.log(props.item);
     return(
         <>
             {/* <div className="d-flex flex-column"> */}
@@ -43,7 +45,7 @@ const EducationItem = (props) => {
                 }))}
                 >Add Item
             </Button>
-            <Button className="ml-2" variant="outline">
+            <Button className="ml-2" variant="outline disabled" onClick={() =>props.item?dispatcher(removeEducation(props.item.id)):undefined}>
                <span className="text-danger"> Delete Item</span>
             </Button>
         </div>

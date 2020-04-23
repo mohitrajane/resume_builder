@@ -21,6 +21,7 @@ const Experience = () =>{
                     default:
                         break;
             }
+            return 0;
         });
         if(itemShow !== undefined){
             return(

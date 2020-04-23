@@ -15,17 +15,21 @@ const Education = () =>{
         educationData.map((item) =>{
             switch(item.id){
                     case selectedEducation:
+                        console.log(item);
                         itemShow =item.id;
                         //Not working when retuened here
                         break;
                     default:
                         break;
             }
-        });
+            return 0;
+            }
+        
+        );
         if(itemShow !== undefined){
             return(
                 //d-flex  col-lg-10 mx-auto flex-column
-                <div className="">
+                <div>
                     <EducationItem key={itemShow} item={educationData[itemShow]}/>
                 </div>
             );
@@ -34,7 +38,7 @@ const Education = () =>{
             return (
                 //d-flex  col-lg-10 mx-auto flex-column
             <div className="">
-                <EducationItem />
+                <EducationItem/>
             </div>
             );
         }

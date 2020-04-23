@@ -4,7 +4,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import {addExperience} from "../../action";
 const ExperienceItem = (props) =>{
     const length = useSelector(state => state.experience.items.length);
-    const noOfItems = (length === 0) ? '0' :(length+1).toString();
+    const noOfItems = (length === 0) ? '0' :length.toString();
     const dispatcher = useDispatch();
     const [company,setCompany] = useState('');
     const [start,setStart] = useState('');

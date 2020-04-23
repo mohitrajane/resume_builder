@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION} from './action-type';
 
 const initialState ={
     profile :{
@@ -54,19 +54,19 @@ const rootReducer = (state = initialState, action) => {
             newState = {...state,profile:{
                 ...state.profile,
                 [title]:action.payload
-            }}
+            }};
             return newState;
         case UPDATE_CURRENT_TAB:
             newState ={...state,tabs:{
                 ...state.tabs,
                 current:action.payload
-            }}
+            }};
             return newState;
         case UPDATE_CURRENT_EDUCATION:
             newState = {...state,education:{
                 ...state.education,
                 current:action.payload
-            }}
+            }};
             return newState;
         case ADD_EDUCATION:
             newState ={...state,education:{
@@ -76,13 +76,13 @@ const rootReducer = (state = initialState, action) => {
                     ...state.education.items,
                     action.payload
                 ]
-            }}
+            }};
             return newState;
         case UPDATE_CURRENT_EXPERIENCE:
             newState = {...state,experience:{
                 ...state.experience,
                 current:action.payload
-            }}
+            }};
             return newState;
         case ADD_EXPERIENCE:
             newState ={...state,experience:{
@@ -92,13 +92,21 @@ const rootReducer = (state = initialState, action) => {
                     ...state.experience.items,
                     action.payload
                 ]
-            }}
+            }};
             return newState;
         case ADD_SKILL:
             newState ={...state,skills:{
                 ...state.skills,
                 items:action.payload
-            }}
+            }};
+            return newState;
+        case REMOVE_EDUCATION:
+            console.log('here');
+            newState={...state,education:{
+                ...state.education,
+                items:[...state.education.items.splice(action.payload,1)]
+            }};
+            console.log(newState);
             return newState;
         default:
             return state;
