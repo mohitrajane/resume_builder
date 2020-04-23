@@ -24,25 +24,30 @@ const Education = () =>{
         });
         if(itemShow !== undefined){
             return(
-                <>
+                //d-flex  col-lg-10 mx-auto flex-column
+                <div className="">
                     <EducationItem key={itemShow} item={educationData[itemShow]}/>
-                </>
+                </div>
             );
         }
         else{
-            return <EducationItem />;
+            return (
+                //d-flex  col-lg-10 mx-auto flex-column
+            <div className="">
+                <EducationItem />
+            </div>
+            );
         }
     };
     return(
         <>
+            <div className="d-flex  col-lg-10 mx-auto flex-column">
             {
                 educationData.length === 0?
-                <div className="mx-2">
-                    <ButtonGroup className="mx-auto">
+                    <ButtonGroup className="mx-auto my-3">
                         <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>New</Button>
                     </ButtonGroup>
-                </div>:
-                <div className="mx-2">
+                :
                     <ButtonGroup className="d-flex " aria-label="Basic example">
                     {educationData.map((item)=>(
                         <>
@@ -51,10 +56,9 @@ const Education = () =>{
                     ))}
                     <Button key={educationData.length+1} id={educationData.length+1}  onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}} variant="secondary">New</Button>
                     </ButtonGroup>
-                </div>
             }
-           {currentItem()}
-
+            {currentItem()}
+            </div>
         </>
     );
 };

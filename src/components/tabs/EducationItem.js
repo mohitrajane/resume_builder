@@ -13,9 +13,9 @@ const EducationItem = (props) => {
     const [degree,setDegree] = useState('');
     return(
         <>
-            <div className="d-flex flex-column">
-                <div className="d-flex  col-lg-12 flex-column">
-                            <div className="my-2 d-flex flex-column">
+            {/* <div className="d-flex flex-column"> */}
+                <div className="d-flex flex-column">
+                            <div className="my-2 d-flex  flex-column">
                                 <span>Institution Name</span>
                                 <input type="text" value={props.item?props.item.institution:undefined} onChange={(e)=>setInstitution(e.target.value)}></input>
                             </div>
@@ -32,7 +32,7 @@ const EducationItem = (props) => {
                                 <input type="text"value={props.item?props.item.degree: undefined} onChange={(e)=>setDegree(e.target.value)}></input>
                             </div>
                     </div>
-            </div>
+            {/* </div> */}
             <div className="mx-3 my-4">
             <Button variant="outline-primary" onClick={() => dispatcher(addEducation({
                 id: noOfItems,

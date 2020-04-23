@@ -18,7 +18,7 @@ const Profile = () =>{
                         </div>
                 </div>
                 <hr/>
-                <div className="d-flex col-lg-10 mx-auto flex-column ml-2">
+                <div className="d-flex col-lg-10 mx-auto flex-column">
                     <div className="my-2 d-flex flex-column">
                         <span>Address Line 1</span>
                         <input type="text" placeholder="House no" onChange={(e) => dispatch(updateProfile(e.target.value,'addressLine1'))}></input>
@@ -33,7 +33,7 @@ const Profile = () =>{
                     </div>
                 </div>
                 <hr/>
-                <div className="d-flex col-lg-10 mx-auto flex-column ml-2">
+                <div className="d-flex col-lg-10 mx-auto flex-column">
                     <div className="my-2 d-flex flex-column">
                         <span>Phone Number</span>
                         <input type="text" onChange={(e) => dispatch(updateProfile(e.target.value,'phone'))}></input>
@@ -44,7 +44,7 @@ const Profile = () =>{
                     </div>
                 </div>
                 <hr/>
-                <div className="d-flex col-lg-10 mx-auto flex-column ml-2">
+                <div className="d-flex col-lg-10 mx-auto flex-column">
                     <div className="my-2 d-flex flex-column">
                         <span>Skills</span>
                         <Skills/>

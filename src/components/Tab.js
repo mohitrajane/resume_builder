@@ -7,7 +7,7 @@ const  Tab = (props) => {
     const currentTab = useSelector(state => state.tabs.current)
     return(
         <div className="m-1" onClick={(event) => dispatch(updateCurrentTab(event.target.id))}>
-            {props.id === currentTab? <span id={props.id} className="badge p-2 badge-primary btn-sm">{props.tab}</span> : <span id={props.id} className="badge p-2 badge-light font-weight-normal">{props.tab}</span>}
+            {props.id === currentTab? <span id={props.id} className="badge p-2 badge-primary btn mx-1" style={{'font-size':'1.2rem'}}>{props.tab}</span> : <span id={props.id} className="badge mx-1 p-2 badge-light font-weight-normal" style={{'font-size':'1.2rem'}}>{props.tab}</span>}
         </div>
     )
 }

@@ -34,16 +34,14 @@ const Experience = () =>{
         }
     };
     return(
-        <>
+        <div className="d-flex  col-lg-10 mx-auto flex-column">
             {
                 experienceData.length === 0?
-                <div className="mx-2">
-                    <ButtonGroup className="mx-auto">
+                    <ButtonGroup className="mx-auto my-3">
                         <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>New</Button>
                     </ButtonGroup>
-                </div>:
-                <div className="mx-2">
-                    <ButtonGroup className="d-flex " aria-label="Basic example">
+                    :
+                    <ButtonGroup className="d-flex" aria-label="Basic example">
                     {experienceData.map((item)=>(
                         <>
                                 <Button key={item.id} id={item.id} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>{item.company}</Button>
@@ -51,11 +49,10 @@ const Experience = () =>{
                     ))}
                     <Button key={experienceData.length+1} id={experienceData.length+1}  onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}} variant="secondary">New</Button>
                     </ButtonGroup>
-                </div>
             }
            {currentItem()}
 
-        </>
+        </div>
     );
 };
 

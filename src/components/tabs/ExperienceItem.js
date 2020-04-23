@@ -12,8 +12,8 @@ const ExperienceItem = (props) =>{
     const [designation, setDesignation] = useState('');
     return(
        <>
-             <div className="d-flex flex-column">
-                <div className="d-flex  col-lg-12 flex-column">
+             {/* <div className="d-flex flex-column"> */}
+                <div className="d-flex flex-column">
                             <div className="my-2 d-flex flex-column">
                                 <span>Company Name</span>
                                 <input type="text" value={props.item?props.item.company:undefined} onChange={(e)=>setCompany(e.target.value)}></input>
@@ -31,7 +31,7 @@ const ExperienceItem = (props) =>{
                                 <input type="text"value={props.item?props.item.designation: undefined} onChange={(e)=>setDesignation(e.target.value)}></input>
                             </div>
                     </div>
-            </div>
+            {/* </div> */}
             <div className="mx-3 my-4">
             <Button variant="outline-primary" onClick={() => dispatcher(addExperience({
                 id: noOfItems,
