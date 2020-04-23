@@ -14,7 +14,7 @@ const initialState ={
     },
     education :{
         heading:'education',
-        current:'default',
+        current:'0',
         items:[
             // {
             //     id:'0',

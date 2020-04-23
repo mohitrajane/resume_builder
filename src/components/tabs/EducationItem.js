@@ -5,7 +5,7 @@ import { addEducation } from '../../action';
 
 const EducationItem = (props) => {
     const length = useSelector(state => state.education.items.length);
-    const noOfItems = (length === 0) ? 0 :(length+1);
+    const noOfItems = (length === 0) ? '0' :(length+1).toString();
     const dispatcher = useDispatch();
     const [institution,setInstitution] = useState('');
     const [start,setStart] = useState('');
