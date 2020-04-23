@@ -14,7 +14,7 @@ function Viewer(){
 
     return(
         <div className="min-vh-100 w-100">
-            <div style={a4Style} className="shadow mx-auto my-5 p-5">
+            <div id="resume" style={a4Style} className="shadow mx-auto my-5 p-5">
                 <div id="profile" className="d-flex">
                     <div className="w-100">
                         <h1>{profile.firstName+' '+profile.lastName}</h1>
