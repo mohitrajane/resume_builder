@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL} from './action-type';
 
 const initialState ={
     profile :{
@@ -24,6 +24,8 @@ const initialState ={
 
     },
     skills:{
+        heading:'skills',
+        items:[]
     },
     tabs:{
         current:'profile',
@@ -39,10 +41,6 @@ const initialState ={
             {
                 key:'experience',
                 name:'Experience'
-            },
-            {
-                key:'skills',
-                name:'Skills'
             }
         ]
     }
@@ -94,6 +92,12 @@ const rootReducer = (state = initialState, action) => {
                     ...state.experience.items,
                     action.payload
                 ]
+            }}
+            return newState;
+        case ADD_SKILL:
+            newState ={...state,skills:{
+                ...state.skills,
+                items:action.payload
             }}
             return newState;
         default:

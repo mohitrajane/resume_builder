@@ -24,9 +24,10 @@ const Menu = () =>{
         }
     };
     return(
-        <div className="min-vh-100 position-fixed">
+        //position-fixed
+        <div className="min-vh-100 sticky-top" style={{'min-width':'25%'}}>
                 <TabBar currentTab={currentTab} tabs={tabs}/>
-                <div className="min-vh-100 position-fixed">{renderTab()}</div>
+                <div className="min-vh-100 d-flex flex-column">{renderTab()}</div>
         </div>
     )
 }

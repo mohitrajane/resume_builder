@@ -39,7 +39,7 @@ const Education = () =>{
                 educationData.length === 0?
                 <div className="mx-2">
                     <ButtonGroup className="mx-auto">
-                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>Default</Button>
+                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>New</Button>
                     </ButtonGroup>
                 </div>:
                 <div className="mx-2">
@@ -49,7 +49,7 @@ const Education = () =>{
                                 <Button key={item.id} id={item.id} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}}>{item.institution}</Button>
                         </>
                     ))}
-                    <Button key={educationData.length+1} id={educationData.length+1}  onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}} variant="secondary">Default</Button>
+                    <Button key={educationData.length+1} id={educationData.length+1}  onClick={(e)=>{dispatcher(updateCurrentEducation(e.target.id))}} variant="secondary">New</Button>
                     </ButtonGroup>
                 </div>
             }

@@ -39,7 +39,7 @@ const Experience = () =>{
                 experienceData.length === 0?
                 <div className="mx-2">
                     <ButtonGroup className="mx-auto">
-                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>Default</Button>
+                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>New</Button>
                     </ButtonGroup>
                 </div>:
                 <div className="mx-2">
@@ -49,7 +49,7 @@ const Experience = () =>{
                                 <Button key={item.id} id={item.id} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>{item.company}</Button>
                         </>
                     ))}
-                    <Button key={experienceData.length+1} id={experienceData.length+1}  onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}} variant="secondary">Default</Button>
+                    <Button key={experienceData.length+1} id={experienceData.length+1}  onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}} variant="secondary">New</Button>
                     </ButtonGroup>
                 </div>
             }

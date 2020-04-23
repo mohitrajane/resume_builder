@@ -7,7 +7,9 @@ function Viewer(){
         'height': "29.6cm",
     };
     const profile = useSelector(state => state.profile);
-    const education = useSelector(state =>state.education.items)
+    const education = useSelector(state =>state.education.items);
+    const experience = useSelector(state => state.experience.items);
+    const skills = useSelector(state => state.skills.items);
 
 
     return(
@@ -31,6 +33,24 @@ function Viewer(){
                         end:{item.end}
                         degree:{item.degree}
                     </p>
+                ))}
+            </div>
+            <div>
+                {experience.map((item)=>(
+                    <p key={item.id}>
+                        name:{item.company}
+                        start:{item.start}
+                        end:{item.end}
+                        degree:{item.destination}
+                    </p>
+                ))}
+            </div>
+            <div>
+                {skills.map((item)=>(
+                    <p>
+                        {item}
+                    </p>
+                    
                 ))}
             </div>
             </div>

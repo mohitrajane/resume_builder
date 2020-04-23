@@ -6,12 +6,12 @@ import Menu from  './components/Menu';
 import Viewer from './components/Viewer';
 
 const  App = () => (
-  <Container className='m-0 p-0'>
-    <Row className="m-0">
-      <Col lg={3} className='p-0 shadow'><Menu/></Col>
-      <Col lg={9} className='p-0'><Viewer/></Col>
-    </Row>
-  </Container>
+      <Container className='m-0 p-0 w-100' style={{'min-width':"100vw"}}>
+        <Row className="m-0">
+          <Col lg={3} className='p-0 shadow'><Menu/></Col>
+          <Col lg={9} className='p-0'><Viewer/></Col>
+        </Row>
+      </Container>
 );
 
 export default App;
