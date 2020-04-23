@@ -26,7 +26,6 @@ const Education = () =>{
             return(
                 <>
                     <EducationItem key={itemShow} item={educationData[itemShow]}/>
-                    <EducationItem/>
                 </>
             );
         }

@@ -24,7 +24,7 @@ function Viewer(){
             </div>
             <div>
                 {education.map((item)=>(
-                    <p>
+                    <p key={item.id}>
                         name:{item.institution}
                         start:{item.start}
                         end:{item.end}
