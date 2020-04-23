@@ -19,6 +19,7 @@ function Viewer(){
                 addredd1 : <p>{profile.addressLine1}</p>
                 addredd2 : <p>{profile.addressLine2}</p>
                 addredd3 : <p>{profile.addressLine3}</p>
+                phoneno: <p>{profile.phone}</p>
                 email : <p>{profile.email}</p>
 
             </div>

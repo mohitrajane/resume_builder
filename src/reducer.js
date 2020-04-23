@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE} from './action-type';
 
 const initialState ={
     profile :{
@@ -15,26 +15,11 @@ const initialState ={
     education :{
         heading:'education',
         current:'0',
-        items:[
-            // {
-            //     id:'0',
-            //     institution:'FISAT',
-            //     start:'Jan 2016',
-            //     end:'Aug 2020',
-            //     degree:'B.tech'
-            // },
-            // {
-            //     id:'1',
-            //     institution:'AAAA',
-            //     start:'Jan 2016',
-            //     end:'Aug 2020',
-            //     degree:'B.tech'
-            // },
-        ] // {institution:'',start:'',end: '',degree: ''}
-       
+        items:[] // {institution:'',start:'',end: '',degree: ''}
     },
     experience:{
         heading:'experience',
+        current:'0',
         items :[] //company:'',start:'',end:'',designation:''
 
     },
@@ -91,6 +76,22 @@ const rootReducer = (state = initialState, action) => {
                 current:action.payload.id,
                 items:[
                     ...state.education.items,
+                    action.payload
+                ]
+            }}
+            return newState;
+        case UPDATE_CURRENT_EXPERIENCE:
+            newState = {...state,experience:{
+                ...state.experience,
+                current:action.payload
+            }}
+            return newState;
+        case ADD_EXPERIENCE:
+            newState ={...state,experience:{
+                ...state.experience,
+                current:action.payload.id,
+                items:[
+                    ...state.experience.items,
                     action.payload
                 ]
             }}
