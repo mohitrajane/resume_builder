@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION,UPDATE_EXPERIENCE} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION,UPDATE_EXPERIENCE,UPDATE_EDUCATION} from './action-type';
 
 const initialState ={
     profile :{
@@ -147,8 +147,6 @@ const rootReducer = (state = initialState, action) => {
             console.log(newState);
             return newState;
         case UPDATE_EXPERIENCE:
-            console.log(action.payload);
-// items:[...state.experience.items,...state.experience.items[action.payload.id=action.payload]]
             newState={...state,experience:{
                 ...state.experience,
                 items:[...state.experience.items.splice(action.payload,1)]
@@ -156,6 +154,16 @@ const rootReducer = (state = initialState, action) => {
             newState={...state,experience:{
                 ...state.experience,
                 items:[...state.experience.items,action.payload]
+            }};
+            return newState;
+        case UPDATE_EDUCATION:
+            newState={...state,education:{
+                ...state.education,
+                items:[...state.education.items.splice(action.payload,1)]
+            }};
+            newState={...state,education:{
+                ...state.education,
+                items:[...state.education.items,action.payload]
             }};
             return newState;
         default:
