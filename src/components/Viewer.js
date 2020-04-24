@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-
+import {MdLocalPhone,MdEmail} from 'react-icons/md';
 function Viewer(){
     const a4Style ={
         width: "21cm",
@@ -25,8 +25,15 @@ function Viewer(){
                         </div>
                     </div>
                     <div className="flex-shrink-0 my-auto">
-                        <p>{profile.phone}</p>
-                        <p>{profile.email}</p>
+                        <p>
+                            {profile.phone?(<MdLocalPhone style={{color:'#007bff'}}/>):''}
+                            {profile.phone}
+                        </p>
+                        <p>
+                            {profile.email?(<MdEmail style={{color:'#007bff'}}/>):''}
+                            {profile.email}
+                        
+                        </p>
                     </div>
                 </div>
                 <hr/>
