@@ -25,7 +25,7 @@ const ExperienceItem = (props) =>{
                 }))}
                 >Update Item
                 </Button>
-                <Button className="ml-2" variant="outline" onClick={dispatcher(removeExperience(props.item.id))}>
+                <Button className="ml-2" variant="outline" onClick={() =>dispatcher(removeExperience(props.item.id))}>
                 <span className="text-danger"> Delete Item</span>
                 </Button>
            </>

@@ -60,7 +60,7 @@ export const removeExperience = (payload) =>(
         type:REMOVE_EXPERIENCE,
         payload
     }
-)
+);
 
 export const updateExperience = (payload) =>(
     {

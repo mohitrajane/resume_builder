@@ -185,6 +185,51 @@ const rootReducer = (state = initialState, action) => {
                 }
             }
             return newState;
+        case REMOVE_EXPERIENCE:
+            console.log('in remove_EXPERIENCE')
+            if(action.payload === '0' && state.experience.items.length ===1){
+                newState = {...state,experience:{
+                    current:'0',
+                    items:[]
+                }}
+            }
+            else{
+                newState={...state,experience:{
+                    ...state.experience,
+                    items:[
+                        ...state.experience.items.slice(0, action.payload),
+                        ...state.experience.items.slice(Number(action.payload) + 1)
+                    ]
+                }};
+                let updateArray = Array.from(newState.experience.items);
+                updateArray.forEach((item)=>{
+                    if(item.id >action.payload){
+                        item.id = (Number(item.id) -1).toString()
+                    }});
+                newState ={...newState,experience:{
+                    ...newState.experience,
+                    items:updateArray
+                }};
+                if(newState.experience.current === action.payload)
+                {
+                    if(newState.experience.items.length !==0 ){
+                    newState={
+                        ...newState,experience:{
+                            ...newState.experience,
+                            current:newState.experience.items[0].id
+                        }
+                    }}
+                    else{
+                        newState={
+                            ...state,experience:{
+                                ...state.experience,
+                                current:'0'
+                            }
+                        }
+                    }
+                }
+            }
+            return newState;
         case UPDATE_EXPERIENCE:
             newArray = state.experience.items.slice();
             newArray[Number(action.payload.id)] = action.payload;
