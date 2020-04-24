@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import {useSelector,useDispatch} from 'react-redux';
-import {addExperience, updateExperience} from "../../action";
+import {addExperience, updateExperience, removeExperience} from "../../action";
 const ExperienceItem = (props) =>{
     const length = useSelector(state => state.experience.items.length);
     const noOfItems = (length === 0) ? '0' :length.toString();
@@ -22,11 +22,10 @@ const ExperienceItem = (props) =>{
                 start:start,
                 end:end,
                 designation:designation,
-                active:'true'
                 }))}
                 >Update Item
                 </Button>
-                <Button className="ml-2" variant="outline">
+                <Button className="ml-2" variant="outline" onClick={dispatcher(removeExperience(props.item.id))}>
                 <span className="text-danger"> Delete Item</span>
                 </Button>
            </>
@@ -38,7 +37,6 @@ const ExperienceItem = (props) =>{
                 start:start,
                 end:end,
                 designation:designation,
-                active:'true'
                 }))}
                 >Add Item
             </Button>
@@ -46,6 +44,7 @@ const ExperienceItem = (props) =>{
     return(
        <>
                 <div className="d-flex flex-column">
+                    <form>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Company Name</span>
                                 <input type="text" value={company} onChange={(e)=>setCompany(e.target.value)}></input>
@@ -62,7 +61,8 @@ const ExperienceItem = (props) =>{
                                 <span>Designation</span>
                                 <input type="text"value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
                             </div>
-                    </div>
+                    </form>
+                </div>
             <div className="mx-3 my-4 col-lg-12">
                 {renderButton()}
             </div>

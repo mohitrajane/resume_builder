@@ -10,6 +10,7 @@ const Experience = () =>{
     const selectedExperience = useSelector(state => state.experience.current);
     const dispatcher = useDispatch();
     let itemShow;
+    console.log(experienceData);
     const currentItem = () =>{
         //NEED refactoring 
         experienceData.forEach((item) =>{
