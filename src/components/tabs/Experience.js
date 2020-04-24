@@ -35,7 +35,7 @@ const Experience = () =>{
         }
     };
     return(
-        <div className="d-flex  col-lg-10 mx-auto flex-column">
+        <div className="d-flex  col-lg-12 mx-auto flex-column">
             {
                 experienceData.length === 0?
                     <ButtonGroup className="mx-auto my-3">

@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION, UPDATE_CURRENT_EXPERIENCE, ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION,UPDATE_EXPERIENCE} from './action-type';
 
 const initialState ={
     profile :{
@@ -11,16 +11,55 @@ const initialState ={
         phone:'',
         email:''
 
+        // heading :'profile',
+        // firstName: 'Mohit',
+        // lastName: 'Rajan',
+        // addressLine1 : 'Edacheril house',
+        // addressLine2: 'Behind csb',
+        // addressLine3:'Kunnumpuram,Kakkanad',
+        // phone:'+919037969499',
+        // email:'mhit98@gmail.com'
+
     },
     education :{
         heading:'education',
         current:'0',
-        items:[] // {institution:'',start:'',end: '',degree: ''}
+        items:[
+            // {
+            //     id:'0',
+            //     institution:'FISAT',
+            //     start:'AUG 2016',
+            //     end:'AUG 2020',
+            //     degree:'B.Tech'
+            // },
+            // {
+            //     id:'1',
+            //     institution:'FISAT',
+            //     start:'AUG 2020',
+            //     end:'AUG 2022',
+            //     degree:'M.Tech'
+            // },
+        ] // {institution:'',start:'',end: '',degree: ''}
     },
     experience:{
         heading:'experience',
         current:'0',
-        items :[] //company:'',start:'',end:'',designation:''
+        items :[
+            // {
+            //     id:'0',
+            //     company:'impress',
+            //     start:'Jan 2020',
+            //     end:'Dec 2022',
+            //     designation:'Jr Software developer'
+            // },
+            // {
+            //     id:'1',
+            //     company:'J&D',
+            //     start:'Jan 2023',
+            //     end:'Dec 2025',
+            //     designation:'Sr Software developer'
+            // }
+        ] //company:'',start:'',end:'',designation:''
 
     },
     skills:{
@@ -101,12 +140,23 @@ const rootReducer = (state = initialState, action) => {
             }};
             return newState;
         case REMOVE_EDUCATION:
-            console.log('here');
             newState={...state,education:{
                 ...state.education,
                 items:[...state.education.items.splice(action.payload,1)]
             }};
             console.log(newState);
+            return newState;
+        case UPDATE_EXPERIENCE:
+            console.log(action.payload);
+// items:[...state.experience.items,...state.experience.items[action.payload.id=action.payload]]
+            newState={...state,experience:{
+                ...state.experience,
+                items:[...state.experience.items.splice(action.payload,1)]
+            }};
+            newState={...state,experience:{
+                ...state.experience,
+                items:[...state.experience.items,action.payload]
+            }};
             return newState;
         default:
             return state;

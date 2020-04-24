@@ -1,4 +1,4 @@
-import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION,UPDATE_CURRENT_EXPERIENCE,ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION} from './action-type';
+import {UPDATE_PROFILE,UPDATE_CURRENT_TAB,UPDATE_CURRENT_EDUCATION,ADD_EDUCATION,UPDATE_CURRENT_EXPERIENCE,ADD_EXPERIENCE,ADD_SKILL,REMOVE_EDUCATION,UPDATE_EXPERIENCE} from './action-type';
 
 export const  updateProfile = (payload, title) =>(
     
@@ -51,6 +51,13 @@ export const addSkill = (payload) =>(
 export const removeEducation = (payload) =>(
     {
         type:REMOVE_EDUCATION,
+        payload
+    }
+);
+
+export const updateExperience = (payload) =>(
+    {
+        type:UPDATE_EXPERIENCE,
         payload
     }
 )

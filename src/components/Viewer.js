@@ -17,11 +17,11 @@ function Viewer(){
             <div id="resume" style={a4Style} className="shadow mx-auto my-5 p-5">
                 <div id="profile" className="d-flex">
                     <div className="w-100">
-                        <h1>{profile.firstName+' '+profile.lastName}</h1>
+                        <h1 className="text-primary">{profile.firstName+' '+profile.lastName}</h1>
                         <div className="d-flex flex-column">
-                            <span class="font-weight-light">{profile.addressLine1}</span>
-                            <span class="font-weight-light">{profile.addressLine2}</span>
-                            <span class="font-weight-light">{profile.addressLine3}</span>
+                            <span className="font-weight-light">{profile.addressLine1}</span>
+                            <span className="font-weight-light">{profile.addressLine2}</span>
+                            <span className="font-weight-light">{profile.addressLine3}</span>
                         </div>
                     </div>
                     <div className="flex-shrink-1 my-auto">
@@ -30,7 +30,7 @@ function Viewer(){
                     </div>
                 </div>
                 <hr/>
-                <h6 className="p-2">Work Experience</h6>
+                <h6 className="p-2 text-primary">Work Experience</h6>
                 <div id="experience" className="d-flex flex-column">
                     {experience.map((item)=>(
                         <div className="d-flex w-100 p-4">
@@ -45,7 +45,7 @@ function Viewer(){
                     ))}
                 </div>
                 <hr/>
-                <h6 className="p-2">Education</h6>
+                <h6 className="p-2 text-primary">Education</h6>
                 <div id="education" className="d-flex flex-column">
                     {education.map((item)=>(
                         <div className="d-flex w-100 p-4">
@@ -60,7 +60,7 @@ function Viewer(){
                     ))}
                 </div>
                 <hr/>
-                <h6 className="p-2">Skills</h6>
+                <h6 className="p-2 text-primary">Skills</h6>
                 <div id="skills" className="d-flex">
                     {skills.map((item)=>(
                         <p className="badge badge-primary mx-2">
