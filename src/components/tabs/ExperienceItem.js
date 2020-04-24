@@ -10,6 +10,7 @@ const ExperienceItem = (props) =>{
     const [start,setStart] = useState(props.item? props.item.start:'');
     const [end,setEnd] = useState(props.item?props.item.end : '');
     const [designation, setDesignation] = useState(props.item?props.item.designation: '');
+    const [description, setDescription] = useState(props.item?props.item.description: '');
     const id = useState(props.item?props.item.id:'')[0];
     const active = useState(props.item?true:false)[0];
     const renderButton =()=>(
@@ -22,6 +23,7 @@ const ExperienceItem = (props) =>{
                 start:start,
                 end:end,
                 designation:designation,
+                description:description
                 }))}
                 >Update Item
                 </Button>
@@ -37,6 +39,7 @@ const ExperienceItem = (props) =>{
                 start:start,
                 end:end,
                 designation:designation,
+                description:description
                 }))}
                 >Add Item
             </Button>
@@ -60,6 +63,10 @@ const ExperienceItem = (props) =>{
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Designation</span>
                                 <input type="text" placeholder="position" value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
+                            </div>
+                            <div className="my-2 d-flex col-lg-10 flex-column">
+                                <span>Description</span>
+                                <textarea type="text"  value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
                             </div>
                     </form>
                 </div>

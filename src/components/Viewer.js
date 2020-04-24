@@ -33,14 +33,19 @@ function Viewer(){
                 <h6 className="p-2 text-primary">Work Experience</h6>
                 <div id="experience" className="d-flex flex-column">
                     {experience.map((item)=>(
-                        <div className="d-flex w-100 p-4">
-                            <div className="w-100" key={item.id}>
-                                <h5 className="mb-0">{item.company}</h5>
-                                <span className="font-weight-light" style={{fontSize:'0.75rem'}}>{item.designation}</span>
+                        <div>
+                            <div className="d-flex w-100 px-4 pt-4 pb-0">
+                                <div className="w-100" key={item.id}>
+                                    <h5 className="mb-0">{item.company}</h5>
+                                    <span className="font-weight-light" style={{fontSize:'0.75rem'}}>{item.designation}</span>
+                                </div>
+                                <div className="flex-shrink-0">
+                                    <p className="font-weight-light" style={{fontSize:'0.75rem'}}>{item.start} - {item.end}</p>
+                                </div>
                             </div>
-                            <div className="flex-shrink-0">
-                                <p className="font-weight-light" style={{fontSize:'0.75rem'}}>{item.start} - {item.end}</p>
-                            </div>
+                            <span className="d-flex w-75 px-4">
+                                {item.description}
+                            </span>
                         </div>
                     ))}
                 </div>
