@@ -3,6 +3,7 @@ import Tags from "@yaireo/tagify/dist/react.tagify" ;
 import {useDispatch, useSelector} from 'react-redux';
 import {addSkill} from '../../action';
 
+// Cant delete items when custom label is added
 const Skills = () =>{
     const dispatcher = useDispatch();
     const skills = useSelector(state => state.skills.items);

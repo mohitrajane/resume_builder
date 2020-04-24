@@ -47,19 +47,19 @@ const ExperienceItem = (props) =>{
                     <form>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Company Name</span>
-                                <input type="text" value={company} onChange={(e)=>setCompany(e.target.value)}></input>
+                                <input type="text" placeholder="Good Company" value={company} onChange={(e)=>setCompany(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Start Date</span>
-                                <input type="text" value={start} onChange={(e)=>setStart(e.target.value)}></input>
+                                <input type="text" placeholder="Jan 20xx" value={start} onChange={(e)=>setStart(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>End Date</span>
-                                <input type="text" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
+                                <input type="text" placeholder="June 20xx" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Designation</span>
-                                <input type="text"value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
+                                <input type="text" placeholder="position" value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
                             </div>
                     </form>
                 </div>

@@ -47,19 +47,19 @@ const EducationItem = (props) => {
                     <form>
                         <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Institution Name</span>
-                                <input type="text" value={institution} onChange={(e)=>setInstitution(e.target.value)} required></input>
+                                <input type="text" placeholder="Good College" value={institution} onChange={(e)=>setInstitution(e.target.value)} required></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Start Date</span>
-                                <input type="text" value={start} onChange={(e)=>setStart(e.target.value)}></input>
+                                <input type="text" placeholder="Aug 2016" value={start} onChange={(e)=>setStart(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>End Date</span>
-                                <input type="text" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
+                                <input type="text" placeholder="Aug 2020" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10  flex-column">
                                 <span>Degree</span>
-                                <input type="text"value={degree} onChange={(e)=>setDegree(e.target.value)}></input>
+                                <input type="text" placeholder="Good degree" value={degree} onChange={(e)=>setDegree(e.target.value)}></input>
                             </div>
                             <div className="mx-3 my-4 col-lg-12">
                                 {renderButton()}
