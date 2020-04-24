@@ -140,11 +140,49 @@ const rootReducer = (state = initialState, action) => {
             }};
             return newState;
         case REMOVE_EDUCATION:
-            newState={...state,education:{
-                ...state.education,
-                items:[...state.education.items.splice(action.payload,1)]
-            }};
-            console.log(newState);
+            // bugged
+            console.log(action.payload);
+            if (action.payload === '0'){
+                newState = {...state,education:{
+                    current:'0',
+                    items:[]
+                }}
+            }
+            else{
+                newState={...state,education:{
+                    ...state.education,
+                    items:[...state.education.items.splice(0,action.payload), ...state.education.items.splice(action.payload,1)]
+                }};
+                newState.education.items.map((item)=>{
+                    if(item.id <action.payload){
+                        return item;
+                    }else{
+                        return({
+                            ...item,
+                            id: item.id+1
+                        })
+                    }
+                });
+                if(newState.education.current === action.payload)
+                {
+                    if(newState.education.items.length !==0 ){
+                    newState={
+                        ...newState,education:{
+                            ...newState.education,
+                            current:newState.education.items[0].id
+                        }
+                    }}
+                    else{
+                        newState={
+                            ...state,education:{
+                                ...state.education,
+                                current:'0'
+                            }
+                        }
+                    }
+                }
+                console.log(newState.education);
+            }
             return newState;
         case UPDATE_EXPERIENCE:
             newState={...state,experience:{

@@ -15,7 +15,6 @@ const Education = () =>{
         educationData.map((item) =>{
             switch(item.id){
                     case selectedEducation:
-                        console.log(item);
                         itemShow =item.id;
                         //Not working when retuened here
                         break;
@@ -45,7 +44,7 @@ const Education = () =>{
     };
     return(
         <>
-            <div className="d-flex  col-lg-10 mx-auto flex-column">
+            <div className="d-flex  col-lg-12 mx-auto flex-column">
             {
                 educationData.length === 0?
                     <ButtonGroup className="mx-auto my-3">

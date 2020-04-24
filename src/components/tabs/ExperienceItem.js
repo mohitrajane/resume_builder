@@ -14,7 +14,8 @@ const ExperienceItem = (props) =>{
     const [active,setActive] = useState(props.item?true:false);
     const renderButton =()=>(
         active?
-            <Button variant="outline-primary" onClick={() => dispatcher(updateExperience({
+           <>
+                 <Button variant="outline-primary" onClick={() => dispatcher(updateExperience({
                 id: id,
                 company:company,
                 start:start,
@@ -23,7 +24,11 @@ const ExperienceItem = (props) =>{
                 active:'true'
                 }))}
                 >Update Item
-            </Button>
+                </Button>
+                <Button className="ml-2" variant="outline">
+                <span className="text-danger"> Delete Item</span>
+                </Button>
+           </>
             :
             <Button variant="outline-primary" onClick={() => dispatcher(addExperience({
                 id: noOfItems,
@@ -60,9 +65,6 @@ const ExperienceItem = (props) =>{
             {/* </div> */}
             <div className="mx-3 my-4 col-lg-12">
                 {renderButton()}
-                <Button className="ml-2" variant="outline">
-                <span className="text-danger"> Delete Item</span>
-                </Button>
             </div>
        </>
     );
