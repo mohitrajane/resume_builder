@@ -43,7 +43,6 @@ const ExperienceItem = (props) =>{
     )
     return(
        <>
-             {/* <div className="d-flex flex-column"> */}
                 <div className="d-flex flex-column">
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Company Name</span>
@@ -62,7 +61,6 @@ const ExperienceItem = (props) =>{
                                 <input type="text"value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
                             </div>
                     </div>
-            {/* </div> */}
             <div className="mx-3 my-4 col-lg-12">
                 {renderButton()}
             </div>

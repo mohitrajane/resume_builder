@@ -23,11 +23,9 @@ const Education = () =>{
             }
             return 0;
             }
-        
         );
         if(itemShow !== undefined){
             return(
-                //d-flex  col-lg-10 mx-auto flex-column
                 <div>
                     <EducationItem key={itemShow} item={educationData[itemShow]}/>
                 </div>
@@ -35,8 +33,7 @@ const Education = () =>{
         }
         else{
             return (
-                //d-flex  col-lg-10 mx-auto flex-column
-            <div className="">
+            <div>
                 <EducationItem/>
             </div>
             );

@@ -9,9 +9,7 @@ const Skills = () =>{
     const callback = (e) =>{
         let data = e.detail.tagify.value;
         let skillArray = [];
-        // console.log(data);
         data.map((skill)=>(skillArray.push(skill.value)))
-        console.log(skillArray);
         dispatcher(addSkill(skillArray));
         return 0;
     };
@@ -28,8 +26,6 @@ const Skills = () =>{
             add:callback,
             remove:callback,
             "edit:updated":callback
-            // "edit:start":callback,
-            // "edit:input":callback
         }
       };
     return(
@@ -37,7 +33,6 @@ const Skills = () =>{
             <Tags
                 settings={settings}
                 value={skills}
-                // onChange={e => console.log("CHANGED:", e)}
              />
         </>
     );

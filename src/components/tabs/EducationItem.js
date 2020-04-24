@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import {useSelector,useDispatch} from 'react-redux';
 import { addEducation, removeEducation, updateEducation } from '../../action';
 
@@ -19,14 +18,13 @@ const EducationItem = (props) => {
         active?
             (
                 <>
-                      <Button variant="outline-primary" onClick={() => dispatcher(updateEducation({
+                    <Button variant="outline-primary" onClick={() => dispatcher(updateEducation({
                         id: id,
                         institution:institution,
                         start:start,
                         end:end,
-                        degree:degree,
-                        }))}
-                        >Update Item
+                        degree:degree, }))}>
+                        Update Item
                     </Button>
                     <Button className="ml-2" variant="outline" onClick={() =>props.item?dispatcher(removeEducation(props.item.id)):undefined}>
                     <span className="text-danger"> Delete Item</span>
@@ -44,18 +42,10 @@ const EducationItem = (props) => {
                 >Add Item
             </Button>
     )
-    const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    };
     return(
         <>
-            {/* <div className="d-flex flex-column"> */}
                 <div className="d-flex flex-column">
-                    <form  onSubmit={handleSubmit}>
+                    <form>
                         <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span>Institution Name</span>
                                 <input type="text" value={institution} onChange={(e)=>setInstitution(e.target.value)} required></input>
@@ -77,7 +67,6 @@ const EducationItem = (props) => {
                         </div>
                     </form>
                 </div>
-            {/* </div> */}
       </>
     );
 }
