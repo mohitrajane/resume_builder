@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 function Viewer(){
     const a4Style ={
         width: "21cm",
-        'height': "29.6cm",
+        height: "29.6cm",
     };
     const profile = useSelector(state => state.profile);
     const education = useSelector(state =>state.education.items);
@@ -24,7 +24,7 @@ function Viewer(){
                             <span className="font-weight-light">{profile.addressLine3}</span>
                         </div>
                     </div>
-                    <div className="flex-shrink-1 my-auto">
+                    <div className="flex-shrink-0 my-auto">
                         <p>{profile.phone}</p>
                         <p>{profile.email}</p>
                     </div>

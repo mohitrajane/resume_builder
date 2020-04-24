@@ -1,10 +1,11 @@
 import React from 'react';
 import Tags from "@yaireo/tagify/dist/react.tagify" ;
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addSkill} from '../../action';
 
 const Skills = () =>{
     const dispatcher = useDispatch();
+    const skills = useSelector(state => state.skills.items);
     const callback = (e) =>{
         let data = e.detail.tagify.value;
         let skillArray = [];
@@ -35,6 +36,7 @@ const Skills = () =>{
         <>
             <Tags
                 settings={settings}
+                value={skills}
                 // onChange={e => console.log("CHANGED:", e)}
              />
         </>
