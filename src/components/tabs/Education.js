@@ -12,7 +12,7 @@ const Education = () =>{
     let itemShow;
     const currentItem = () =>{
         //NEED refactoring 
-        educationData.map((item) =>{
+        educationData.forEach((item) =>{
             switch(item.id){
                     case selectedEducation:
                         itemShow =item.id;
@@ -21,7 +21,6 @@ const Education = () =>{
                     default:
                         break;
             }
-            return 0;
             }
         );
         if(itemShow !== undefined){

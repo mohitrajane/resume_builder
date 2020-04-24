@@ -7,13 +7,12 @@ const EducationItem = (props) => {
     const length = useSelector(state => state.education.items.length);
     const noOfItems = (length === 0) ? '0' :length.toString();
     const dispatcher = useDispatch();
-    const [institution,setInstitution] = useState(props.item?props.item.institution:undefined);
-    const [start,setStart] = useState(props.item? props.item.start:undefined);
-    const [end,setEnd] = useState(props.item?props.item.end : undefined);
-    const [degree,setDegree] = useState(props.item?props.item.degree: undefined);
-    const [id,SetId] = useState(props.item?props.item.id:undefined);
-    const [active,setActive] = useState(props.item?true:false);
-    const [validated, setValidated] = useState(false);
+    const [institution,setInstitution] = useState(props.item?props.item.institution:'');
+    const [start,setStart] = useState(props.item? props.item.start: '');
+    const [end,setEnd] = useState(props.item?props.item.end : '');
+    const [degree,setDegree] = useState(props.item?props.item.degree: '');
+    const id = useState(props.item?props.item.id: '')[0];
+    const active = useState(props.item?true:false)[0];
     const renderButton =()=>(
         active?
             (

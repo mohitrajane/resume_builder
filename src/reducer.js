@@ -87,6 +87,7 @@ const initialState ={
 
 const rootReducer = (state = initialState, action) => {
     let newState;
+    let newArray;
      switch(action.type){
         case UPDATE_PROFILE:
             let title = action.title;
@@ -140,9 +141,8 @@ const rootReducer = (state = initialState, action) => {
             }};
             return newState;
         case REMOVE_EDUCATION:
-            // bugged
-            console.log(action.payload);
-            if (action.payload === '0'){
+            // requires major refracting
+            if (action.payload === '0' && state.education.items.length ===1){
                 newState = {...state,education:{
                     current:'0',
                     items:[]
@@ -151,18 +151,20 @@ const rootReducer = (state = initialState, action) => {
             else{
                 newState={...state,education:{
                     ...state.education,
-                    items:[...state.education.items.splice(0,action.payload), ...state.education.items.splice(action.payload,1)]
+                    items:[
+                        ...state.education.items.slice(0, action.payload),
+                        ...state.education.items.slice(Number(action.payload) + 1)
+                    ]
                 }};
-                newState.education.items.map((item)=>{
-                    if(item.id <action.payload){
-                        return item;
-                    }else{
-                        return({
-                            ...item,
-                            id: item.id+1
-                        })
-                    }
-                });
+                let updateArray = Array.from(newState.education.items);
+                updateArray.forEach((item)=>{
+                    if(item.id >action.payload){
+                        item.id = (Number(item.id) -1).toString()
+                    }});
+                newState ={...newState,education:{
+                    ...newState.education,
+                    items:updateArray
+                }};
                 if(newState.education.current === action.payload)
                 {
                     if(newState.education.items.length !==0 ){
@@ -181,28 +183,23 @@ const rootReducer = (state = initialState, action) => {
                         }
                     }
                 }
-                console.log(newState.education);
             }
             return newState;
         case UPDATE_EXPERIENCE:
+            newArray = state.experience.items.slice();
+            newArray[Number(action.payload.id)] = action.payload;
             newState={...state,experience:{
                 ...state.experience,
-                items:[...state.experience.items.splice(action.payload,1)]
-            }};
-            newState={...state,experience:{
-                ...state.experience,
-                items:[...state.experience.items,action.payload]
-            }};
+                items:newArray
+            }}
             return newState;
         case UPDATE_EDUCATION:
+            newArray = state.education.items.slice();
+            newArray[Number(action.payload.id)] = action.payload;
             newState={...state,education:{
                 ...state.education,
-                items:[...state.education.items.splice(action.payload,1)]
-            }};
-            newState={...state,education:{
-                ...state.education,
-                items:[...state.education.items,action.payload]
-            }};
+                items:newArray
+            }}
             return newState;
         default:
             return state;

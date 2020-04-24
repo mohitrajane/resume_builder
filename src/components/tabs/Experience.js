@@ -12,7 +12,7 @@ const Experience = () =>{
     let itemShow;
     const currentItem = () =>{
         //NEED refactoring 
-        experienceData.map((item) =>{
+        experienceData.forEach((item) =>{
             switch(item.id){
                     case selectedExperience:
                         itemShow =item.id;
@@ -21,7 +21,6 @@ const Experience = () =>{
                     default:
                         break;
             }
-            // return 0;
         });
         if(itemShow !== undefined){
             return(
@@ -31,7 +30,7 @@ const Experience = () =>{
             );
         }
         else{
-            return <ExperienceItem />;
+            return <ExperienceItem key={0}/>;
         }
     };
     return(
@@ -52,7 +51,6 @@ const Experience = () =>{
                     </ButtonGroup>
             }
            {currentItem()}
-
         </div>
     );
 };
