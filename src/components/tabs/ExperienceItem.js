@@ -16,63 +16,91 @@ const ExperienceItem = (props) =>{
     const renderButton =()=>(
         active?
            <>
-                 <Button variant="outline-primary" onClick={() => dispatcher(updateExperience({
-                key:id,
-                id: id,
-                company:company,
-                start:start,
-                end:end,
-                designation:designation,
-                description:description
-                }))}
-                >Update Item
+                <Button variant="outline-primary"
+                    onClick={() => dispatcher(updateExperience({
+                        key:id,
+                        id: id,
+                        company:company,
+                        start:start,
+                        end:end,
+                        designation:designation,
+                        description:description
+                        }))}
+                    >Update Item
                 </Button>
-                <Button className="ml-2" variant="outline" onClick={() =>dispatcher(removeExperience(props.item.id))}>
+                <Button className="ml-2" variant="outline" onClick={
+                    () =>dispatcher(removeExperience(props.item.id))}
+                >
                 <span className="text-danger"> Delete Item</span>
                 </Button>
            </>
             :
-            <Button variant="outline-primary" onClick={() => dispatcher(addExperience({
-                key:noOfItems,
-                id: noOfItems,
-                company:company,
-                start:start,
-                end:end,
-                designation:designation,
-                description:description
+            <Button variant="outline-primary"
+                onClick={() => dispatcher(addExperience({
+                    key:noOfItems,
+                    id: noOfItems,
+                    company:company,
+                    start:start,
+                    end:end,
+                    designation:designation,
+                    description:description
                 }))}
                 >Add Item
             </Button>
-    )
+    );
     return(
        <>
-                <div className="d-flex flex-column">
-                    <form>
-                            <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span className="font-weight-light text-uppercase pb-1">Company Name</span>
-                                <input type="text" placeholder="Good Company" value={company} onChange={(e)=>setCompany(e.target.value)}></input>
-                            </div>
-                            <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span className="font-weight-light text-uppercase pb-1">Start Date</span>
-                                <input type="text" placeholder="Jan 20xx" value={start} onChange={(e)=>setStart(e.target.value)}></input>
-                            </div>
-                            <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span className="font-weight-light text-uppercase pb-1">End Date</span>
-                                <input type="text" placeholder="June 20xx" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
-                            </div>
-                            <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span className="font-weight-light text-uppercase pb-1">Designation</span>
-                                <input type="text" placeholder="position" value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
-                            </div>
-                            <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span className="font-weight-light text-uppercase pb-1">Description</span>
-                                <textarea type="text"  value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
-                            </div>
-                    </form>
-                </div>
-            <div className="mx-3 my-4 col-lg-12">
-                {renderButton()}
+            <div className="d-flex flex-column">
+                <form>
+                    <div className="my-2 d-flex col-lg-10 flex-column">
+                        <span className="font-weight-light text-uppercase pb-1">Company Name</span>
+                        <input
+                            type="text"
+                            placeholder="Good Company"
+                            value={company}
+                            onChange={(e)=>setCompany(e.target.value)}>
+                        </input>
+                    </div>
+                    <div className="my-2 d-flex col-lg-10 flex-column">
+                        <span className="font-weight-light text-uppercase pb-1">Start Date</span>
+                        <input
+                            type="text"
+                            placeholder="Jan 20xx"
+                            value={start}
+                            onChange={(e)=>setStart(e.target.value)}>
+                        </input>
+                    </div>
+                    <div className="my-2 d-flex col-lg-10 flex-column">
+                        <span className="font-weight-light text-uppercase pb-1">End Date</span>
+                        <input
+                            type="text"
+                            placeholder="June 20xx"
+                            value={end}
+                            onChange={(e)=>setEnd(e.target.value)}>
+                        </input>
+                    </div>
+                    <div className="my-2 d-flex col-lg-10 flex-column">
+                        <span className="font-weight-light text-uppercase pb-1">Designation</span>
+                        <input
+                            type="text"
+                            placeholder="position"
+                            value={designation}
+                            onChange={(e)=>setDesignation(e.target.value)}>
+                        </input>
+                    </div>
+                    <div className="my-2 d-flex col-lg-10 flex-column">
+                        <span className="font-weight-light text-uppercase pb-1">Description</span>
+                        <textarea
+                            type="text"
+                            value={description}
+                            onChange={(e)=>setDescription(e.target.value)}>
+                        </textarea>
+                    </div>
+                </form>
             </div>
+        <div className="mx-3 my-4 col-lg-12">
+            {renderButton()}
+        </div>
        </>
     );
 };

@@ -4,25 +4,22 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button'
 import EducationItem from './EducationItem';
 import {updateCurrentEducation} from "../../action";
-// institution:'',start:'',end: '',degree: ''
+
 const Education = () =>{
     const educationData = useSelector(state => state.education.items);
     const selectedEducation = useSelector(state => state.education.current);
     const dispatcher = useDispatch();
     let itemShow;
     const currentItem = () =>{
-        //NEED refactoring 
         educationData.forEach((item) =>{
             switch(item.id){
                     case selectedEducation:
                         itemShow =item.id;
-                        //Not working when retuened here
                         break;
                     default:
                         break;
             }
-            }
-        );
+        });
         if(itemShow !== undefined){
             return(
                 <div>

@@ -25,7 +25,12 @@ const EducationItem = (props) => {
                         degree:degree, }))}>
                         Update Item
                     </Button>
-                    <Button className="ml-2" variant="outline" onClick={() =>props.item?dispatcher(removeEducation(props.item.id)):undefined}>
+                    <Button className="ml-2" variant="outline" 
+                        onClick={() =>props.item?
+                            dispatcher(removeEducation(props.item.id))
+                            :undefined
+                        }
+                    >
                     <span className="text-danger"> Delete Item</span>
                     </Button>
                 </>
@@ -47,19 +52,39 @@ const EducationItem = (props) => {
                     <form>
                         <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span className="font-weight-light text-uppercase pb-1">Institution Name</span>
-                                <input type="text" placeholder="Good College" value={institution} onChange={(e)=>setInstitution(e.target.value)} required></input>
+                                <input
+                                    type="text"
+                                    placeholder="Good College"
+                                    value={institution}
+                                    onChange={(e)=>setInstitution(e.target.value)} required>
+                                </input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span className="font-weight-light text-uppercase pb-1">Start Date</span>
-                                <input type="text" placeholder="Aug 2016" value={start} onChange={(e)=>setStart(e.target.value)}></input>
+                                <input
+                                    type="text"
+                                    placeholder="Aug 2016"
+                                    value={start}
+                                    onChange={(e)=>setStart(e.target.value)}>
+                                </input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
                                 <span className="font-weight-light text-uppercase pb-1">End Date</span>
-                                <input type="text" placeholder="Aug 2020" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
+                                <input
+                                    type="text"
+                                    placeholder="Aug 2020"
+                                    value={end}
+                                    onChange={(e)=>setEnd(e.target.value)}>
+                                </input>
                             </div>
                             <div className="my-2 d-flex col-lg-10  flex-column">
                                 <span className="font-weight-light text-uppercase pb-1">Degree</span>
-                                <input type="text" placeholder="Good degree" value={degree} onChange={(e)=>setDegree(e.target.value)}></input>
+                                <input
+                                    type="text"
+                                    placeholder="Good degree"
+                                    value={degree}
+                                    onChange={(e)=>setDegree(e.target.value)}>
+                                </input>
                             </div>
                             <div className="mx-3 my-4 col-lg-12">
                                 {renderButton()}
@@ -68,5 +93,5 @@ const EducationItem = (props) => {
                 </div>
       </>
     );
-}
+};
 export default EducationItem;

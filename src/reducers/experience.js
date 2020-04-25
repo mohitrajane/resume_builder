@@ -20,7 +20,10 @@ const experienceReducer = (state = initialState, action) =>{
             };
             return newState;
             case REMOVE_EXPERIENCE:
+                // Logic: Remove item and update id of all the following item and update current variable which denotes the current selected item.
+
                 if(action.payload === '0' && state.items.length ===1){
+                    // Edge cases:Remove when only 1 item is present.
                     newState = {current:'0',
                         items:[]
                     }
@@ -32,6 +35,7 @@ const experienceReducer = (state = initialState, action) =>{
                             ...state.items.slice(Number(action.payload) + 1)
                         ]
                     };
+                    // Update id of the following elements
                     let updateArray = Array.from(newState.items);
                     updateArray.forEach((item)=>{
                         if(item.id >action.payload){
@@ -40,6 +44,7 @@ const experienceReducer = (state = initialState, action) =>{
                     newState ={...newState,
                         items:updateArray
                     };
+                    // Updating current item if required
                     if(newState.current === action.payload)
                     {
                         if(newState.items.length !==0 ){

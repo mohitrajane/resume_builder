@@ -38,7 +38,9 @@ const Experience = () =>{
             {
                 experienceData.length === 0?
                     <ButtonGroup className="mx-auto my-3">
-                        <Button key={'0'} variant="secondary" onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}>New</Button>
+                        <Button key={'0'} variant="secondary" 
+                            onClick={(e)=>{dispatcher(updateCurrentExperience(e.target.id))}}
+                        >New</Button>
                     </ButtonGroup>
                     :
                     <ButtonGroup className="d-flex" aria-label="Basic example">

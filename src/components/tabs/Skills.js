@@ -3,7 +3,7 @@ import Tags from "@yaireo/tagify/dist/react.tagify" ;
 import {useDispatch, useSelector} from 'react-redux';
 import {addSkill} from '../../action';
 
-// Cant delete items when custom label is added
+// Cant delete items when custom label is added something
 const Skills = () =>{
     const dispatcher = useDispatch();
     const skills = useSelector(state => state.skills.items);
@@ -12,16 +12,23 @@ const Skills = () =>{
         let skillArray = [];
         data.map((skill)=>(skillArray.push(skill.value)))
         dispatcher(addSkill(skillArray));
-        return 0;
     };
     let settings={
-        blacklist: ["xxx", "yyy", "zzz"],
-        // maxTags: 6,
         backspace: "edit",
         placeholder: "Type your skills",
-        whitelist:['python','javascript','c++','php','html','css','ruby','R','golang'],
+        whitelist:[
+            'python',
+            'javascript',
+            'c++',
+            'php',
+            'html',
+            'css',
+            'ruby',
+            'R',
+            'golang'
+        ],
         dropdown: {
-          enabled: 0 // a;ways show suggestions dropdown
+          enabled: 0 // always show suggestions dropdown
         },
         callbacks: {
             add:callback,
@@ -37,7 +44,6 @@ const Skills = () =>{
              />
         </>
     );
-
 };
 
 export default Skills;

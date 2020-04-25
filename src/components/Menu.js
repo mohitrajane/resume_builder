@@ -30,7 +30,10 @@ const Menu = () =>{
                 <TabBar currentTab={currentTab} tabs={tabs}/>
                 <div className="min-vh-100 d-flex flex-column">
                     {renderTab()}
-                    <Button className="sticky-top w-75 mx-auto m-5" onClick={saveAsPdf}>Generate PDF</Button>
+                    <Button
+                        className="sticky-top w-75 mx-auto m-5" onClick={saveAsPdf}
+                        >Generate PDF
+                    </Button>
                 </div>
         </div>
     )

@@ -2,6 +2,9 @@ import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 
 export const saveAsPdf = () =>{
+  /**
+   Generates Image of div resume using html2canvas and then to pdf using jsPDF in a4 size
+   */
     var input = document.getElementById('resume');
     html2canvas(input, {
       // useCORS: true,
@@ -12,11 +15,7 @@ export const saveAsPdf = () =>{
       scale:1
     }).then(canvas => {
       const image = canvas.toDataURL('image/jpeg');
-      const doc = new jsPDF({
-        // orientation: 'portrait',
-        // unit: 'px',
-        // format:'a4',
-      });
+      const doc = new jsPDF({});
         doc.addImage(image, 'JPEG',0,0,);
         doc.save(`resume_${Date.now()}.pdf`);
     });
