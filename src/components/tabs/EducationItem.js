@@ -46,19 +46,19 @@ const EducationItem = (props) => {
                 <div className="d-flex flex-column">
                     <form>
                         <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Institution Name</span>
+                                <span className="font-weight-light text-uppercase pb-1">Institution Name</span>
                                 <input type="text" placeholder="Good College" value={institution} onChange={(e)=>setInstitution(e.target.value)} required></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Start Date</span>
+                                <span className="font-weight-light text-uppercase pb-1">Start Date</span>
                                 <input type="text" placeholder="Aug 2016" value={start} onChange={(e)=>setStart(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>End Date</span>
+                                <span className="font-weight-light text-uppercase pb-1">End Date</span>
                                 <input type="text" placeholder="Aug 2020" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10  flex-column">
-                                <span>Degree</span>
+                                <span className="font-weight-light text-uppercase pb-1">Degree</span>
                                 <input type="text" placeholder="Good degree" value={degree} onChange={(e)=>setDegree(e.target.value)}></input>
                             </div>
                             <div className="mx-3 my-4 col-lg-12">

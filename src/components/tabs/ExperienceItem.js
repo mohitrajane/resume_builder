@@ -49,23 +49,23 @@ const ExperienceItem = (props) =>{
                 <div className="d-flex flex-column">
                     <form>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Company Name</span>
+                                <span className="font-weight-light text-uppercase pb-1">Company Name</span>
                                 <input type="text" placeholder="Good Company" value={company} onChange={(e)=>setCompany(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Start Date</span>
+                                <span className="font-weight-light text-uppercase pb-1">Start Date</span>
                                 <input type="text" placeholder="Jan 20xx" value={start} onChange={(e)=>setStart(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>End Date</span>
+                                <span className="font-weight-light text-uppercase pb-1">End Date</span>
                                 <input type="text" placeholder="June 20xx" value={end} onChange={(e)=>setEnd(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Designation</span>
+                                <span className="font-weight-light text-uppercase pb-1">Designation</span>
                                 <input type="text" placeholder="position" value={designation} onChange={(e)=>setDesignation(e.target.value)}></input>
                             </div>
                             <div className="my-2 d-flex col-lg-10 flex-column">
-                                <span>Description</span>
+                                <span className="font-weight-light text-uppercase pb-1">Description</span>
                                 <textarea type="text"  value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
                             </div>
                     </form>
